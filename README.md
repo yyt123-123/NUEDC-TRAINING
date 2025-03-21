@@ -89,10 +89,10 @@ This is a plan for Electronic Design Competition
 
 ### 优先级排序
 1. **第一周速通**：  
-   - 控制类：实现基础PID  
+   - 控制类：实现基础PID、初步设计电路pcb板、学习3d建模和3d打印
    - 仪器类：用现成ADC模块读取电压  
 2. **第二周深化**：  
-   - 控制类：移植PID到STM32（HAL库模板）  
+   - 控制类：移植PID到STM32（HAL库模板）、根据设计好的pcb用3d打印模型初步搭建小车  
    - 仪器类：串口绘制实时波形（Serialplot）  
 3. **第三周融合**：  
    - 将ADC采集数据作为PID反馈量  

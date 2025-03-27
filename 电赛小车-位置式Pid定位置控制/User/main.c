@@ -1,0 +1,38 @@
+#include "stm32f10x.h"                  // Device header
+#include "Delay.h"
+#include "OLED.h"
+#include "LED.h"
+#include "Timer.h"
+#include "Key.h"
+#include "RP.h"
+#include "Motor.h"
+#include "Encoder.h"
+#include "Serial.h"
+#include "PWM.h"
+
+extern int16_t zuosudu, yousudu;
+extern float Actual, Out;
+
+int main(void)
+{
+	OLED_Init();
+    Encoder_Init();
+	
+	Timer_Init();
+	PWM_Init();
+	Motor_Init();
+	Serial_Init();
+		
+	while(1)
+	{
+		OLED_Printf(0, 16, 8, "Act:%+05.0f", Actual);
+		OLED_Printf(0, 32, 8, "Out:%+05.0f", Out);
+
+		OLED_Update();
+		
+		Serial_Printf("%f,%f%\r\n",Actual, Out);
+		
+	}
+}
+
+

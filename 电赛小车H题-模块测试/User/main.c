@@ -179,49 +179,49 @@
 
 
 /*编码器测试*/
-//int16_t zuosudu, yousudu;
-//int16_t Laca_zuo, Laca_you;
+int16_t zuosudu, yousudu;
+int16_t Laca_zuo, Laca_you;
 
 
-//int main(void)
-//{
-//	OLED_Init();
-//    Encoder_Init();
-//	
-//	Timer_Init();
-//	PWM_Init();
-//	Motor_Init();
-//	
-//	while(1)
-//	{
-//		OLED_Printf(0, 0, 8, "Speed:%05d", yousudu);
-//		OLED_Update();
-//		Motor_SetPWM(1000);			
-//	}
-//}
+int main(void)
+{
+	OLED_Init();
+    Encoder_Init();
+	
+	Timer_Init();
+	PWM_Init();
+	Motor_Init();
+	
+	while(1)
+	{
+		OLED_Printf(0, 0, 8, "Speed:%05d", yousudu);
+		OLED_Update();
+		Motor_SetPWM(1000);			
+	}
+}
 
-//void TIM1_UP_IRQHandler(void)
-//{
-//	static uint16_t Count;
-//	
-//	if (TIM_GetITStatus(TIM1, TIM_IT_Update) == SET)
-//	{
-//		Count ++;
-//		if(Count >= 40)
-//		{
-//			Count = 0;
-//			
-//			zuosudu = Encoder_Left();
-//			yousudu = Encoder_Right();
+void TIM1_UP_IRQHandler(void)
+{
+	static uint16_t Count;
+	
+	if (TIM_GetITStatus(TIM1, TIM_IT_Update) == SET)
+	{
+		Count ++;
+		if(Count >= 40)
+		{
+			Count = 0;
+			
+			zuosudu = Encoder_Left();
+			yousudu = Encoder_Right();
 
-//			Laca_zuo += Encoder_Left();
-//			Laca_you += Encoder_Right();
-//		}
-//		
-//		
-//		TIM_ClearITPendingBit(TIM1, TIM_IT_Update);
-//	}
-//}
+			Laca_zuo += Encoder_Left();
+			Laca_you += Encoder_Right();
+		}
+		
+		
+		TIM_ClearITPendingBit(TIM1, TIM_IT_Update);
+	}
+}
 
 
 /*串口测试*/
